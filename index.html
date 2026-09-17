@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Monsieur+La+Doulaise&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -23,27 +23,34 @@
 
   <main id="top">
     <section class="hero">
+      <svg class="piano-split" viewBox="0 0 1200 820" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          class="piano-fill"
+          d="M1200 38
+             C 980 28, 820 48, 760 92
+             C 690 148, 860 250, 890 360
+             C 918 470, 780 560, 520 640
+             C 300 708, 140 728, 0 742
+             L 0 820 L 1200 820 Z"
+        />
+        <path
+          class="piano-rim"
+          d="M1200 38
+             C 980 28, 820 48, 760 92
+             C 690 148, 860 250, 890 360
+             C 918 470, 780 560, 520 640
+             C 300 708, 140 728, 0 742"
+        />
+      </svg>
       <div class="hero-copy">
         <p class="eyebrow">For the serious piano student</p>
         <h1>Hear with your eyes what your ears are still learning.</h1>
         <p class="lede">
           Virtuosity turns a digital piano into a living score of your practice — every note, its duration and velocity, paint the honest picture of your dynamics and phrasing. Record in real-time, listen back identically with MIDI, this time empowered with visual analytics.
         </p>
-        <div class="theme-pills" aria-label="Theme preview">
-          <button type="button" data-theme="classic" class="on">Classic Grand</button>
-          <button type="button" data-theme="studio">Studio Console</button>
-          <button type="button" data-theme="blanco">Blanco</button>
-        </div>
       </div>
-
-      <div class="stage">
-        <div class="glow"></div>
-        <div class="ipad" aria-hidden="true">
-          <div class="ipad-cam"></div>
-          <div class="screen">
-            <canvas id="roll"></canvas>
-          </div>
-        </div>
+      <div class="hero-icon">
+        <img src="assets/icon.png" alt="Virtuosity app icon" />
       </div>
     </section>
 
@@ -52,7 +59,20 @@
         <p class="eyebrow">Watch</p>
         <h2>Videos</h2>
         <p class="section-lead">A short look at Virtuosity in motion. More films will land here as they are published.</p>
-        <div class="video-grid">
+        <div class="theme-pills" aria-label="Theme preview">
+          <button type="button" data-theme="classic" class="on">Classic Grand</button>
+          <button type="button" data-theme="studio">Studio Console</button>
+          <button type="button" data-theme="blanco">Blanco</button>
+        </div>
+        <div class="video-stage">
+          <div class="stage">
+            <div class="ipad" aria-hidden="true">
+              <div class="ipad-cam"></div>
+              <div class="screen">
+                <canvas id="roll"></canvas>
+              </div>
+            </div>
+          </div>
           <figure class="video-card">
             <div class="video-frame">
               <iframe
