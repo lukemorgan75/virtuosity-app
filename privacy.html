@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Virtuosity</title>
+  <meta name="description" content="Privacy policy for the Virtuosity iPad app." />
+  <link rel="icon" href="assets/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="doc">
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/icon-192.png" alt="" width="28" height="28" />
+      <span>Virtuosity</span>
+    </a>
+    <nav>
+      <a href="index.html#videos">Videos</a>
+      <a href="index.html#about">About</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </header>
+
+  <article class="legal wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective September 16, 2026 · Last updated September 16, 2026</p>
+    <p>
+      Virtuosity is an iPad application published by Luke Morgan (“we,” “us”).
+      This policy describes how the app handles information. An older draft of this
+      page could not be located on disk or on prior GitHub Pages; the text below
+      matches the current app.
+    </p>
+
+    <h2>What Virtuosity does</h2>
+    <p>
+      Virtuosity visualizes MIDI from a digital piano as a piano roll, records
+      performances as Standard MIDI files on the device, and can play them back
+      to the instrument. Optional export creates a package of MIDI, a short
+      metadata text file, and locally rendered audio.
+    </p>
+
+    <h2>Information we collect</h2>
+    <p>Virtuosity does not require an account and does not include advertising or analytics SDKs.</p>
+    <ul>
+      <li><strong>MIDI performance data.</strong> Note, timing, velocity, and pedal messages received from a connected instrument are used to draw the roll and, if you record, are stored as <code>.mid</code> files plus a small JSON sidecar (display name, date, comments, folder, tempo, meter, device name) in the app’s Documents folder on your iPad.</li>
+      <li><strong>Preferences.</strong> Appearance, metronome sound, accent setting, and time signature are stored in on-device UserDefaults.</li>
+      <li><strong>No cloud sync.</strong> Recordings are not uploaded to our servers. We do not operate a Virtuosity backend for this app.</li>
+    </ul>
+
+    <h2>Sharing</h2>
+    <p>
+      If you use the system share sheet to export MIDI or a practice package, the
+      files you choose leave the app only through Apple’s share interface, to the
+      destination you pick (Files, Mail, AirDrop, and so on). We do not receive a copy.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      The app is a practice tool and does not knowingly collect personal information
+      from children. MIDI recordings stay on the device unless you export them yourself.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy: <a href="mailto:lukemorgan750@gmail.com">lukemorgan750@gmail.com</a>.
+    </p>
+  </article>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span>© 2026 Luke Morgan</span>
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtuosity — See your piano playing</title>
+  <meta name="description" content="Virtuosity is an iPad MIDI piano-roll practice tool for classical pianists. Watch phrasing, dynamics, and time as you play." />
+  <link rel="icon" href="assets/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">
+      <img src="assets/icon-192.png" alt="" width="28" height="28" />
+      <span>Virtuosity</span>
+    </a>
+    <nav>
+      <a href="#videos">Videos</a>
+      <a href="#about">About</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">iPad · MIDI · piano roll</p>
+        <h1>See the music<br />you already feel.</h1>
+        <p class="lede">
+          Virtuosity turns a digital piano into a living score of your practice —
+          every note, duration, and touch of velocity, in real time.
+        </p>
+        <div class="theme-pills" aria-label="Theme preview">
+          <button type="button" data-theme="classic" class="on">Classic Grand</button>
+          <button type="button" data-theme="studio">Studio Console</button>
+          <button type="button" data-theme="blanco">Blanco</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="glow"></div>
+        <div class="ipad" aria-hidden="true">
+          <div class="ipad-cam"></div>
+          <div class="screen">
+            <canvas id="roll"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="videos" id="videos">
+      <div class="wrap">
+        <p class="eyebrow">Watch</p>
+        <h2>Videos</h2>
+        <p class="section-lead">A short look at Virtuosity in motion. More films will land here as they are published.</p>
+        <div class="video-grid">
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/ja5YCRqWqSk"
+                title="Virtuosity short"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <figcaption>Virtuosity — practice teaser</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Built for the bench,<br />not the studio rack.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            Virtuosity is an iPad companion for classical piano students. Connect a digital piano over MIDI —
+            especially a Yamaha P-125 or similar — and watch an 88-key piano roll paint what you play:
+            pitch, length, and how hard each note was struck.
+          </p>
+          <p>
+            It is not a lesson app and not a DAW. The job is simple: give you an honest picture of phrasing
+            and dynamics so you can hear with your eyes what the ear is still learning.
+          </p>
+          <p>
+            Record a take, loop a bar, zoom in on a passage, mark comments, keep folders of practice.
+            Playback returns the performance to the instrument. Everything stays on your iPad.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span>© <span id="y"></span> Luke Morgan</span>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
