@@ -35,16 +35,15 @@ img { display: block; max-width: 100%; }
   backdrop-filter: blur(10px);
 }
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   text-decoration: none;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
-  letter-spacing: 0.04em;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(36px, 4.2vw, 52px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
   color: var(--gold);
+  padding: 4px 0 8px;
 }
-.brand img { border-radius: 6px; }
 .nav nav { display: flex; gap: 22px; }
 .nav nav a {
   text-decoration: none;
@@ -69,7 +68,7 @@ h1, h2 {
   line-height: 1.08;
   margin: 0 0 16px;
 }
-h1 { font-size: clamp(40px, 6vw, 72px); }
+h1 { font-size: clamp(34px, 4.8vw, 58px); }
 h2 { font-size: clamp(32px, 4vw, 48px); }
 
 .hero {
@@ -87,7 +86,7 @@ h2 { font-size: clamp(32px, 4vw, 48px); }
 .lede {
   font-size: 18px;
   color: var(--muted);
-  max-width: 38ch;
+  max-width: 46ch;
 }
 .theme-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .theme-pills button {
