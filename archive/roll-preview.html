@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archived piano-roll preview — Virtuosity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Outfit:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    body { margin: 0; background: #070605; color: #f4ead0; font-family: Outfit, system-ui, sans-serif; }
+    main { width: min(920px, calc(100% - 32px)); margin: 32px auto 64px; }
+    h1 { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 32px; }
+    .theme-pills { display: flex; gap: 8px; margin: 16px 0; }
+    .theme-pills button {
+      appearance: none; border: 1px solid rgba(244,234,208,0.28); background: transparent;
+      color: #f4ead0; border-radius: 999px; padding: 8px 14px; cursor: pointer;
+      font: 500 12px/1 Outfit, sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .theme-pills button.on { color: #1a1408; background: #c9a227; border-color: #c9a227; }
+    .screen { aspect-ratio: 1.55 / 1; background: #000; border-radius: 16px; overflow: hidden; }
+    canvas { width: 100%; height: 100%; display: block; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Archived piano-roll preview</h1>
+    <div class="theme-pills">
+      <button type="button" data-theme="classic" class="on">Classic Grand</button>
+      <button type="button" data-theme="studio">Studio Console</button>
+      <button type="button" data-theme="blanco">Blanco</button>
+    </div>
+    <div class="screen">
+      <canvas id="roll"></canvas>
+    </div>
+  </main>
+  <script src="roll.js"></script>
+</body>
+</html>

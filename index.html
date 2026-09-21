@@ -8,112 +8,75 @@
   <link rel="icon" href="assets/icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="nav">
     <a class="brand" href="#top">
-      <img src="assets/wordmark.png" alt="Virtuosity" />
+      <span class="brand-icon"><img src="assets/icon-192.png" alt="" /></span>
+      <img class="brand-word" src="assets/wordmark.png" alt="Virtuosity" />
     </a>
     <nav>
       <a href="#videos">Videos</a>
-      <a href="#about">About</a>
+      <a href="#beta">Beta</a>
       <a href="privacy.html">Privacy</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <svg class="piano-split" viewBox="0 0 1200 820" preserveAspectRatio="none" aria-hidden="true">
-        <path
-          class="piano-fill"
-          d="M1200 28
-             C 860 20, 680 48, 575 120
-             C 490 185, 630 290, 595 420
-             C 562 545, 430 635, 240 705
-             C 110 742, 38 754, 0 760
-             L 0 820 L 1200 820 Z"
-        />
-        <path
-          class="piano-rim"
-          d="M1200 28
-             C 860 20, 680 48, 575 120
-             C 490 185, 630 290, 595 420
-             C 562 545, 430 635, 240 705
-             C 110 742, 38 754, 0 760"
-        />
-      </svg>
-      <div class="hero-copy">
-        <p class="eyebrow">For the serious piano student</p>
-        <h1>Hear with your eyes what your ears are still learning.</h1>
-        <p class="lede">
-          Virtuosity turns a digital piano into a living score of your practice — every note, its duration and velocity, paint the honest picture of your dynamics and phrasing. Record in real-time, listen back identically with MIDI, this time empowered with visual analytics.
-        </p>
-      </div>
-      <div class="hero-icon">
-        <div class="app-icon">
-          <img src="assets/icon.png?v=4" alt="Virtuosity app icon" />
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">For the serious piano student</p>
+          <h1>Hear with your eyes what your ears are still learning.</h1>
+          <p class="lede">
+            Virtuosity turns a digital piano into a living score of your practice — every note, its duration and velocity, paint the honest picture of your dynamics and phrasing. Record in real-time, listen back identically with MIDI, this time empowered with visual analytics.
+          </p>
         </div>
+        <figure class="hero-device">
+          <img src="assets/hero-ipad.png" alt="Virtuosity on an iPad, showing a recorded piano roll with pedal and ink marks" />
+        </figure>
       </div>
     </section>
 
-    <section class="videos" id="videos">
+    <section class="band" id="videos">
       <div class="wrap">
-        <p class="eyebrow">Watch</p>
         <h2>Videos</h2>
-        <p class="section-lead">A short look at Virtuosity in motion. More films will land here as they are published.</p>
-        <div class="theme-pills" aria-label="Theme preview">
-          <button type="button" data-theme="classic" class="on">Classic Grand</button>
-          <button type="button" data-theme="studio">Studio Console</button>
-          <button type="button" data-theme="blanco">Blanco</button>
-        </div>
-        <div class="video-stage">
-          <div class="stage">
-            <div class="ipad" aria-hidden="true">
-              <div class="ipad-cam"></div>
-              <div class="screen">
-                <canvas id="roll"></canvas>
-              </div>
-            </div>
+        <div class="video-grid">
+          <div class="video-frame wide">
+            <iframe
+              src="https://www.youtube.com/embed/vAluvh5ViYQ"
+              title="Overview of Virtuosity for iPad (Beta)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
           </div>
-          <figure class="video-card">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube.com/embed/ja5YCRqWqSk"
-                title="Virtuosity short"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
-            <figcaption>Virtuosity — practice teaser</figcaption>
-          </figure>
+          <div class="video-frame short">
+            <iframe
+              src="https://www.youtube.com/embed/ja5YCRqWqSk"
+              title="Virtuosity for iPad — How To Connect External Cable"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="about" id="about">
-      <div class="wrap about-grid">
-        <div>
-          <p class="eyebrow">About</p>
-          <h2>Built for the bench,<br />not the studio rack.</h2>
-        </div>
-        <div class="about-copy">
-          <p>
-            Virtuosity is an iPad companion for classical piano students. Connect a digital piano over MIDI —
-            especially a Yamaha P-125 or similar — and watch an 88-key piano roll paint what you play:
-            pitch, length, and how hard each note was struck.
-          </p>
-          <p>
-            It is not a lesson app and not a DAW. The job is simple: give you an honest picture of phrasing
-            and dynamics so you can hear with your eyes what the ear is still learning.
-          </p>
-          <p>
-            Record a take, loop a bar, zoom in on a passage, mark comments, keep folders of practice.
-            Playback returns the performance to the instrument. Everything stays on your iPad.
-          </p>
-        </div>
+    <span id="about"></span>
+    <section class="band" id="beta">
+      <div class="wrap beta-wrap">
+        <h2>Become a beta tester</h2>
+        <ol class="steps">
+          <li>On your iPad, install <a href="https://apps.apple.com/app/testflight/id899247664">TestFlight</a> from the App Store.</li>
+          <li>Open the invite on that iPad: <a href="https://testflight.apple.com/join/QHLOJXM9">testflight.apple.com/join/QHLOJXM9</a></li>
+          <li>Tap Accept, then Install. Virtuosity runs in landscape.</li>
+          <li>Connect a digital piano with a USB or MIDI cable, then open the app.</li>
+        </ol>
+        <p class="beta-note">If the invite says the beta is not taking new testers, email <a href="mailto:lukemorgan750@gmail.com">lukemorgan750@gmail.com</a> and ask to be added.</p>
       </div>
     </section>
   </main>
