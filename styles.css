@@ -16,6 +16,7 @@ body {
   font-family: Outfit, system-ui, sans-serif;
   font-weight: 400;
   line-height: 1.55;
+  overflow-x: clip;
 }
 
 a { color: inherit; }
@@ -124,11 +125,28 @@ h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 28px; }
   color: var(--muted);
   max-width: 46ch;
 }
-.hero-device { margin: 0; }
-.hero-device img {
+.hero-device {
+  position: relative;
+  margin: 0;
+}
+.hero-device .shot {
   width: 100%;
   height: auto;
   filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.45));
+}
+.hero-device .shot-alt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: hero-swap 14s ease-in-out infinite;
+}
+@keyframes hero-swap {
+  0%, 40% { opacity: 0; }
+  50%, 90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-device .shot-alt { animation: none; opacity: 0; }
 }
 
 .band {
@@ -215,7 +233,10 @@ h2 { font-size: clamp(32px, 4vw, 44px); margin-bottom: 28px; }
   .nav nav { gap: 14px; }
   .hero { padding: 28px 0 12px; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .band { padding: 56px 0 64px; }
+  .other-videos { max-width: 220px; margin-inline: auto; }
+  .watch-title { font-size: clamp(28px, 8vw, 40px); }
+  .band { padding: 48px 0 56px; }
+  h1 { font-size: clamp(32px, 9vw, 48px); }
 }
 
 @media (max-width: 640px) {
