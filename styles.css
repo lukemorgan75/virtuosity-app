@@ -102,39 +102,21 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
   font-size: 15px;
 }
 
-.hero { padding: 48px 0 28px; }
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.05fr);
-  gap: 28px 40px;
-  align-items: center;
+.hero { padding: 88px 0 72px; }
+.hero-copy {
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
 }
-.hero-copy { max-width: 38rem; }
+.hero-copy .eyebrow {
+  text-wrap: balance;
+  margin-inline: auto;
+}
 .lede {
-  margin: 0;
+  margin: 0 auto;
   font-size: 18px;
   color: var(--muted);
   max-width: 46ch;
-}
-.hero-device { position: relative; margin: 0; }
-.hero-device .shot {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.45));
-}
-.hero-device .shot-alt {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  animation: hero-swap 14s ease-in-out infinite;
-}
-@keyframes hero-swap {
-  0%, 40% { opacity: 0; }
-  50%, 90% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-device .shot-alt { animation: none; opacity: 0; }
 }
 
 .band {
@@ -182,8 +164,7 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
 @media (max-width: 860px) {
   .wrap { width: min(var(--max), calc(100% - 32px)); }
   .nav { padding: 12px 16px; }
-  .hero { padding: 28px 0 12px; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .hero { padding: 56px 0 40px; }
   .other-videos { max-width: 220px; margin-inline: auto; }
   .band { padding: 48px 0 56px; }
   h1 { font-size: clamp(32px, 9vw, 48px); }
