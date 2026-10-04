@@ -6,7 +6,7 @@
   <title>Virtuosity — See your piano playing</title>
   <meta name="description" content="Virtuosity is an iPad MIDI piano-roll practice tool for classical pianists. Watch phrasing, dynamics, and time as you play." />
   <link rel="icon" href="assets/icon-192.png?v=3" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body>
   <header class="nav">
@@ -26,17 +26,20 @@
         <div class="hero-copy">
           <p class="eyebrow">The piano is a percussion instrument, let it speak</p>
           <h1>Finally, a tool for piano dynamics.</h1>
-          <p class="lede">Attention to right notes, right rhythm, and right technique are often a cognitive burden sufficient to yield dynamics and phrasing a bridge for later crossing. And the aural acuity of these, a skill itself. Virtuosity is your hand-up.</p>
-          <p class="lede">Like sheet music, the piano roll view is an intuitive pitch versus time display. But conversely, <strong>Virtuosity does not tell you what or how to play; it only shows what you did</strong>, as soon as it happens, preserving the record for your convenient inspection. With meaningful colors and visual elements on the roll, our software paints the full, honest picture of your expression.</p>
+          <p class="lede nugget">Virtuosity shows exactly how you are playing. No auto-generated advice, just the visual information you need to see what’s happening.</p>
         </div>
         <figure class="ipad">
           <div class="ipad-screen" aria-hidden="true">
             <video autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1">
-              <source src="assets/demo-metanome.mp4" type="video/mp4" />
+              <source src="assets/demo-metanome.mp4?v=2" type="video/mp4" />
             </video>
           </div>
           <img class="ipad-frame" src="assets/ipad-bezel.png" alt="iPad Air" />
         </figure>
+        <div class="hero-copy hero-after">
+          <p class="lede">Attention to right notes, right rhythm, and right technique are often a cognitive burden sufficient to yield dynamics and phrasing a bridge for later crossing. And the aural acuity of these, a skill itself. Virtuosity is your hand-up.</p>
+          <p class="lede">Like sheet music, the piano roll view is an intuitive pitch versus time display. But conversely, <strong>Virtuosity does not tell you what or how to play; it only shows what you did</strong>, as soon as it happens, preserving the record for your convenient inspection. With meaningful colors and visual elements on the roll, our software paints the full, honest picture of your expression.</p>
+        </div>
       </div>
     </section>
 
@@ -55,7 +58,7 @@
           <figure class="ipad ipad-live">
             <div class="ipad-screen" aria-hidden="true">
               <video autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1">
-                <source src="assets/demo-metanome.mp4" type="video/mp4" />
+                <source src="assets/demo-metanome.mp4?v=2" type="video/mp4" />
               </video>
             </div>
             <img class="ipad-frame" src="assets/ipad-bezel.png" alt="iPad Air, Metanome" />
@@ -95,7 +98,8 @@
       <span>© <span id="y"></span> Luke Morgan</span>
       <a href="privacy.html">Privacy Policy</a>
     </div>
+    <button type="button" class="ab-toggle" aria-pressed="false">B</button>
   </footer>
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
