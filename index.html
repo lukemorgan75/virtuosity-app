@@ -6,7 +6,7 @@
   <title>Virtuosity — See your piano playing</title>
   <meta name="description" content="Virtuosity is an iPad MIDI piano-roll practice tool for classical pianists. Watch phrasing, dynamics, and time as you play." />
   <link rel="icon" href="assets/icon-192.png?v=3" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <header class="nav">
@@ -26,11 +26,15 @@
         <div class="hero-copy">
           <p class="eyebrow">The piano is a percussion instrument, let it speak</p>
           <h1>Finally, a tool for piano dynamics.</h1>
-          <p class="lede">Attention to right notes, right rhythm, and right technique are often a cognitive burden sufficient to yield dynamics and phrasing a bridge to be crossed later. And the aural acuity of these, a skill itself. Virtuosity is made to give a hand-up in these challenges.</p>
-          <p class="lede">Much like sheet music, the piano roll view is an intuitive pitch versus time display. But conversely, Virtuosity does not tell you what or how to play; it only shows what you did, as soon as it happens, preserving the record for your convenient inspection. With intuitive colors and visual elements on the roll, our software paints the full, honest picture of your expression.</p>
+          <p class="lede">Attention to right notes, right rhythm, and right technique are often a cognitive burden sufficient to yield dynamics and phrasing a bridge for later crossing. And the aural acuity of these, a skill itself. Virtuosity is your hand-up.</p>
+          <p class="lede">Like sheet music, the piano roll view is an intuitive pitch versus time display. But conversely, <strong>Virtuosity does not tell you what or how to play; it only shows what you did</strong>, as soon as it happens, preserving the record for your convenient inspection. With meaningful colors and visual elements on the roll, our software paints the full, honest picture of your expression.</p>
         </div>
         <figure class="ipad">
-          <div class="ipad-screen" aria-hidden="true"></div>
+          <div class="ipad-screen" aria-hidden="true">
+            <video autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1">
+              <source src="assets/demo-metanome.mp4" type="video/mp4" />
+            </video>
+          </div>
           <img class="ipad-frame" src="assets/ipad-bezel.png" alt="iPad Air" />
         </figure>
       </div>
@@ -49,11 +53,19 @@
             <p>Record something in the rotation. Review a recording yourself or with your teacher, draw, markup, and add notes, all in an organized file manager. We don’t collect your data, so everything you record and write stays on your device unless you export and share.</p>
           </article>
           <figure class="ipad ipad-live">
-            <div class="ipad-screen" aria-hidden="true"></div>
+            <div class="ipad-screen" aria-hidden="true">
+              <video autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1">
+                <source src="assets/demo-metanome.mp4" type="video/mp4" />
+              </video>
+            </div>
             <img class="ipad-frame" src="assets/ipad-bezel.png" alt="iPad Air, Metanome" />
           </figure>
           <figure class="ipad ipad-studio">
-            <div class="ipad-screen" aria-hidden="true"></div>
+            <div class="ipad-screen" aria-hidden="true">
+              <video autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1">
+                <source src="assets/demo-studio.mp4" type="video/mp4" />
+              </video>
+            </div>
             <img class="ipad-frame" src="assets/ipad-bezel.png" alt="iPad Air, Studio" />
           </figure>
         </div>
@@ -84,6 +96,6 @@
       <a href="privacy.html">Privacy Policy</a>
     </div>
   </footer>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>

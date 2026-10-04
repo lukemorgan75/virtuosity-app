@@ -124,6 +124,7 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
   max-width: none;
 }
 .lede + .lede { margin-top: 16px; }
+.lede strong { font-weight: 700; color: var(--ink); }
 
 .ipad {
   position: relative;
@@ -141,11 +142,16 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
   overflow: hidden;
   z-index: 0;
 }
+.ipad-screen,
+.ipad-screen video {
+  pointer-events: none;
+}
 .ipad-screen img,
 .ipad-screen video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: #070708;
 }
 .ipad-frame {
   position: absolute;
