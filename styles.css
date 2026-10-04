@@ -130,14 +130,14 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
   position: relative;
   width: min(920px, 100%);
   margin: 48px auto 0;
-  aspect-ratio: 3216 / 2320;
+  aspect-ratio: 2620 / 1900;
 }
 .ipad-screen {
   position: absolute;
-  left: 4.135572%;
-  top: 5.818966%;
-  width: 91.728856%;
-  height: 88.362069%;
+  left: 4.961832%;
+  top: 6.842105%;
+  width: 90.076336%;
+  height: 86.315789%;
   background: #070708;
   overflow: hidden;
   z-index: 0;
