@@ -44,3 +44,99 @@ try {
   if (sessionStorage.getItem("virtuosity-ab") === "b") setLayout("b");
 } catch (error) {}
 }
+
+const wordSlot = document.querySelector(".word-slot");
+const headline = document.querySelector(".hero h1");
+if (wordSlot && headline) {
+  const words = Array.from(wordSlot.querySelectorAll(".word"));
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const hold = [2200, 2200, 2200, 2200, 2200, 2200, 3800];
+  const stagger = 26;
+  const spell = 110;
+  let index = Math.max(0, words.findIndex((word) => word.classList.contains("is-on")));
+  let timer = 0;
+
+  words.forEach((word) => {
+    const text = word.textContent;
+    word.textContent = "";
+    Array.from(text).forEach((ch) => {
+      const letter = document.createElement("span");
+      letter.className = "letter";
+      letter.textContent = ch;
+      word.appendChild(letter);
+    });
+  });
+
+  function show(next) {
+    const prev = (next + words.length - 1) % words.length;
+    words.forEach((word, n) => {
+      word.classList.toggle("is-on", n === next);
+      word.classList.toggle("is-out", n === prev);
+      if (n === next) word.classList.remove("is-leaving");
+    });
+    headline.classList.toggle("is-expression", words[next].classList.contains("is-umbrella"));
+    index = next;
+  }
+
+  function clearSpell(word) {
+    word.querySelectorAll(".letter").forEach((letter) => {
+      letter.style.animation = "none";
+    });
+  }
+
+  function playSpell(word, reverse) {
+    const letters = Array.from(word.querySelectorAll(".letter"));
+    letters.forEach((letter) => {
+      letter.style.animation = "none";
+    });
+    void word.offsetWidth;
+    const count = letters.length;
+    word.classList.toggle("is-leaving", !!reverse);
+    if (reverse && word.classList.contains("is-umbrella")) headline.classList.remove("is-expression");
+    letters.forEach((letter, i) => {
+      const order = reverse ? count - 1 - i : i;
+      const name = reverse ? "letter-unspell" : "letter-spell";
+      letter.style.animation = name + " " + spell + "ms " + (reverse ? "ease-in" : "ease-out") + " " + (order * stagger) + "ms both";
+    });
+    return Math.max(0, count - 1) * stagger + spell;
+  }
+
+  function stop() {
+    window.clearTimeout(timer);
+    timer = 0;
+  }
+
+  function tick() {
+    stop();
+    if (motion.matches || document.hidden) return;
+    playSpell(words[index], false);
+    timer = window.setTimeout(() => {
+      if (motion.matches || document.hidden) return;
+      const exit = playSpell(words[index], true);
+      timer = window.setTimeout(() => {
+        show((index + 1) % words.length);
+        tick();
+      }, exit);
+    }, hold[index]);
+  }
+
+  function settle() {
+    stop();
+    if (motion.matches) {
+      words.forEach((word) => {
+        word.classList.remove("is-out", "is-leaving");
+        clearSpell(word);
+      });
+      const umbrella = words.findIndex((word) => word.classList.contains("is-umbrella"));
+      show(umbrella >= 0 ? umbrella : words.length - 1);
+      return;
+    }
+    if (!words.some((word) => word.classList.contains("is-on"))) show(0);
+    headline.classList.toggle("is-expression", words[index].classList.contains("is-umbrella"));
+    tick();
+  }
+
+  if (motion.addEventListener) motion.addEventListener("change", settle);
+  document.addEventListener("visibilitychange", settle);
+  settle();
+}
