@@ -220,17 +220,9 @@ body.ab-b .hero .ipad { width: 100%; margin: 0; }
 .modes {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "live studio"
-    "live-frame studio-frame";
   column-gap: 48px;
-  row-gap: 28px;
   align-items: start;
 }
-.mode-live { grid-area: live; }
-.mode-studio { grid-area: studio; }
-.ipad-live { grid-area: live-frame; }
-.ipad-studio { grid-area: studio-frame; }
 .modes .ipad {
   width: 100%;
   margin: 12px 0 0;
@@ -241,9 +233,19 @@ body.ab-b .hero .ipad { width: 100%; margin: 0; }
   font-weight: 500;
   letter-spacing: -0.015em;
   color: #fff;
+  text-align: center;
 }
-.mode p {
+.demo + .demo { margin-top: 72px; }
+.demo-title {
   margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+.demo .ipad { margin-top: 12px; }
+.mode p {
+  margin: 22px 0 0;
   font-size: 16px;
   color: var(--muted);
 }
@@ -299,14 +301,9 @@ body.ab-b .hero .ipad { width: 100%; margin: 0; }
   .band { padding: 48px 0 56px; }
   .modes {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "live"
-      "live-frame"
-      "studio"
-      "studio-frame";
-    row-gap: 22px;
+    row-gap: 40px;
   }
-  .modes .ipad { margin-top: 8px; margin-bottom: 12px; }
+  .modes .ipad { margin-top: 8px; }
 }
 
 @media (max-width: 640px) {
