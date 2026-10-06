@@ -182,33 +182,12 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
   transform-origin: right center;
   transition: transform 0.28s ease;
 }
-.word-scope {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(100% + 12px);
-  font-size: 11px;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 0.14em;
-  line-height: 1.35;
-  text-transform: uppercase;
-  color: rgba(245, 245, 247, 0.5);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-.hero h1.is-expression .word-scope {
-  opacity: 1;
-  transition: opacity 0.8s ease 0.25s;
-}
 @media (prefers-reduced-motion: reduce) {
   .word-slot .word { transition: none; }
   .word-slot .word.is-on:not(.is-umbrella) { opacity: 0; transform: none; }
   .word-slot .word.is-umbrella { opacity: 1; transform: none; }
   .word-slot .word.is-umbrella::after { transform: scaleX(1); transition: none; }
   .word-slot .letter { animation: none !important; opacity: 1; transform: none; }
-  .word-scope { opacity: 1; transition: none; }
 }
 .lede {
   margin: 0 auto;
@@ -399,14 +378,6 @@ body.ab-b .hero .ipad { width: 100%; margin: 0; }
   .headline-lead {
     max-width: 100%;
     min-width: 0;
-    text-wrap: balance;
-  }
-  .word-scope {
-    position: static;
-    display: block;
-    margin-top: 8px;
-    font-size: 10px;
-    letter-spacing: 0.08em;
     text-wrap: balance;
   }
   .other-videos { max-width: 220px; margin-inline: auto; }
