@@ -75,7 +75,7 @@ const wordSlot = document.querySelector(".word-slot");
 if (wordSlot) {
   const words = Array.from(wordSlot.querySelectorAll(".word"));
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const hold = [900, 900, 900, 900, 900, 900, 1400];
+  const hold = [900, 900, 900, 900, 1400];
   const stagger = 26;
   const spell = 110;
   let index = Math.max(0, words.findIndex((word) => word.classList.contains("is-on")));
