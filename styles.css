@@ -699,6 +699,14 @@ body.ab-b .hero-after { margin-top: 32px; }
   border: 0;
 }
 
+#videos { padding-bottom: 28px; }
+.closing-get {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 72px;
+}
+.closing-get .hero-get { margin-top: 0; }
+
 .foot {
   border-top: 1px solid var(--line);
   padding: 28px 0 40px;
@@ -738,6 +746,8 @@ body.ab-b .hero-after { margin-top: 32px; }
   }
   .other-videos { max-width: 220px; margin-inline: auto; }
   .band { padding: 48px 0 56px; }
+  #videos { padding-bottom: 20px; }
+  .closing-get { padding-bottom: 56px; }
   .modes {
     grid-template-columns: 1fr;
     row-gap: 40px;
