@@ -238,6 +238,32 @@ h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
   outline: 2px solid rgba(255, 255, 255, 0.7);
   outline-offset: 4px;
 }
+.soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: calc(100vh - 64px);
+  padding: 72px 24px 96px;
+  text-align: center;
+}
+.soon .wrap { width: min(36rem, 100%); min-width: 0; }
+.soon h1 {
+  width: min(16em, 100%);
+  margin: 0 auto 16px;
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 300;
+  white-space: normal;
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.soon p {
+  margin: 0 0 32px;
+  font-size: 18px;
+  color: var(--muted);
+}
+.soon .hero-get { margin-top: 0; }
 
 body.ab-b .hero > .wrap {
   display: block;
@@ -318,15 +344,25 @@ body.ab-b .hero-after { margin-top: 32px; }
   column-gap: 120px;
   align-items: start;
 }
-.modes::before {
+.mode { min-width: 0; }
+.mode-body {
+  display: flow-root;
+  position: relative;
+}
+.modes .mode:first-child .mode-body::before {
   content: "";
   position: absolute;
-  left: 50%;
   top: 0;
   bottom: 0;
-  width: 1px;
-  background: var(--line);
-  transform: translateX(-50%);
+  left: 100%;
+  width: 120px;
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 0.5px),
+    var(--line) calc(50% - 0.5px),
+    var(--line) calc(50% + 0.5px),
+    transparent calc(50% + 0.5px)
+  );
   pointer-events: none;
 }
 .modes .ipad {
@@ -336,6 +372,38 @@ body.ab-b .hero-after { margin-top: 32px; }
 .mode .view-caption { margin-top: 28px; }
 .mode .view-caption + .ipad,
 .mode .view-caption + .ipad-stage { margin-top: 10px; }
+.velocity-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 14px;
+}
+.velocity-mark {
+  flex: 0 0 auto;
+  font-family: "Times New Roman", Times, "Iowan Old Style", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff;
+}
+.velocity-bar {
+  flex: 1 1 auto;
+  height: 8px;
+  background: linear-gradient(
+    90deg in srgb,
+    #2c1848 0%,
+    #7440b3 0.7874%,
+    #406cb3 15.748%,
+    #40b3b3 31.496%,
+    #40b360 50.394%,
+    #b3b341 70.866%,
+    #b36a40 86.614%,
+    #f83131 100%
+  );
+}
 .modes .mode:first-child {
   position: relative;
   z-index: 2;
@@ -357,12 +425,13 @@ body.ab-b .hero-after { margin-top: 32px; }
   transform-origin: center;
 }
 .mode h3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: baseline;
   column-gap: 0.45em;
   row-gap: 2px;
+  width: 100%;
+  min-width: 0;
   margin: 0;
   font-size: 22px;
   font-weight: 500;
@@ -384,12 +453,14 @@ body.ab-b .hero-after { margin-top: 32px; }
 }
 .mode h3 .mode-name,
 .mode h3 .mode-aside { white-space: nowrap; }
+.mode h3 .mode-name { justify-self: end; }
+.mode h3 .mode-aside { justify-self: start; }
+.mode h3.mode-metanome .mode-name { margin-inline-end: -0.16em; }
+.mode h3.mode-studio .mode-name { margin-inline-end: -0.06em; }
 .mode h3 .mode-follow {
-  display: inline-flex;
-  align-items: baseline;
-  column-gap: 0.45em;
-  white-space: nowrap;
+  display: contents;
 }
+.mode h3 .mode-pipe { justify-self: center; }
 .mode h3 .mode-pipe,
 .mode h3 .mode-aside {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
@@ -398,6 +469,25 @@ body.ab-b .hero-after { margin-top: 32px; }
   letter-spacing: 0;
   text-transform: none;
   color: #fff;
+}
+@media (max-width: 980px) {
+  .mode h3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .mode h3 .mode-name {
+    flex: 1 0 100%;
+    margin-inline-end: 0;
+    text-align: center;
+  }
+  .mode h3 .mode-follow {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    column-gap: 0.45em;
+    white-space: nowrap;
+  }
 }
 .demo + .demo { margin-top: 72px; }
 .demo-title {
@@ -479,7 +569,7 @@ body.ab-b .hero-after { margin-top: 32px; }
     grid-template-columns: 1fr;
     row-gap: 40px;
   }
-  .modes::before { display: none; }
+  .modes .mode:first-child .mode-body::before { display: none; }
   .modes .mode + .mode { position: relative; }
   .modes .mode + .mode::before {
     content: "";
