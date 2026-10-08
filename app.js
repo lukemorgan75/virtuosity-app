@@ -21,6 +21,32 @@ document.addEventListener("visibilitychange", () => {
   if (!document.hidden) playScreens();
 });
 
+const turning = document.querySelector(".ipad-turn");
+if (turning) {
+  const turningVideo = turning.querySelector("video");
+  function smoothstep(edge0, edge1, t) {
+    const u = Math.min(1, Math.max(0, (t - edge0) / (edge1 - edge0)));
+    return u * u * (3 - 2 * u);
+  }
+  function deviceAngle(t) {
+    if (t < 15.72) return 0;
+    if (t < 16.08) return -90 * smoothstep(15.72, 16.08, t);
+    if (t < 28.12) return -90;
+    if (t < 28.48) return -90 * (1 - smoothstep(28.12, 28.48, t));
+    return 0;
+  }
+  function trackTurn() {
+    const angle = deviceAngle(turningVideo.currentTime || 0);
+    const w = turning.offsetWidth;
+    const h = turning.offsetHeight;
+    const alpha = Math.abs(angle) * Math.PI / 180;
+    const drop = (w / 2) * Math.sin(alpha) + (h / 2) * (Math.cos(alpha) - 1);
+    turning.style.transform = "translate(-50%, " + drop.toFixed(2) + "px) rotate(" + angle.toFixed(2) + "deg)";
+    requestAnimationFrame(trackTurn);
+  }
+  requestAnimationFrame(trackTurn);
+}
+
 const heroCopy = document.querySelector(".hero-copy");
 const heroAfter = document.querySelector(".hero-after");
 const heroWrap = document.querySelector(".hero > .wrap");
