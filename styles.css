@@ -339,32 +339,29 @@ body.ab-b .hero-after { margin-top: 32px; }
 }
 .modes {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 120px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 72px;
 }
-.mode { min-width: 0; }
+.mode {
+  width: min(100%, 760px);
+  min-width: 0;
+}
 .mode-body {
   display: flow-root;
   position: relative;
   container-type: inline-size;
 }
-.modes .mode:first-child .mode-body::before {
+.modes .mode + .mode { position: relative; }
+.modes .mode + .mode::before {
   content: "";
   position: absolute;
-  top: 0;
-  /* End on the landscape bezel. The square stage continues below it for the turn. */
-  bottom: calc(100cqw * 720 / 2620);
-  left: 100%;
-  width: 120px;
-  background: linear-gradient(
-    to right,
-    transparent calc(50% - 0.5px),
-    var(--line) calc(50% - 0.5px),
-    var(--line) calc(50% + 0.5px),
-    transparent calc(50% + 0.5px)
-  );
+  left: 0;
+  right: 0;
+  top: -36px;
+  height: 1px;
+  background: var(--line);
   pointer-events: none;
 }
 .modes .ipad {
@@ -373,6 +370,16 @@ body.ab-b .hero-after { margin-top: 32px; }
 }
 .mode .view-caption,
 .mode .conceal-title { margin-top: 28px; }
+.mode .view-caption {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  color: #fff;
+}
+.mode .ipad + .view-caption,
+.mode .velocity-legend + .view-caption,
+.mode .voice-frame + .conceal-title { margin-top: 40px; }
 .mode .view-caption + .ipad,
 .mode .view-caption + .ipad-stage,
 .mode .view-caption + .voice-frame,
@@ -385,7 +392,7 @@ body.ab-b .hero-after { margin-top: 32px; }
   top: 0;
   bottom: 0;
   width: 0;
-  left: max(-8px, calc(26px - max(24px, (100vw - 1140px) / 2)));
+  left: -8px;
   line-height: 0;
 }
 .voice-scale .velocity-mark {
@@ -401,7 +408,7 @@ body.ab-b .hero-after { margin-top: 32px; }
   align-items: center;
   gap: 10px;
   width: 100%;
-  margin-top: 14px;
+  margin-top: 26px;
 }
 .velocity-mark {
   flex: 0 0 auto;
@@ -438,6 +445,8 @@ body.ab-b .hero-after { margin-top: 32px; }
   width: 100%;
   aspect-ratio: 1;
   margin-top: 22px;
+  /* The turning bezel dips below the square. Keep the hot keys under that corner. */
+  margin-bottom: calc(26% + 12px);
 }
 .modes .ipad-stage .ipad {
   position: absolute;
@@ -467,20 +476,34 @@ body.ab-b .hero-after { margin-top: 32px; }
   font-family: "Exo 2", sans-serif;
   font-size: 26px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 .mode h3.mode-studio {
   font-size: 26px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
+}
+.mode-index {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-inline-end: 0.28em;
 }
 .mode h3 .mode-name,
 .mode h3 .mode-aside { white-space: nowrap; }
 .mode h3 .mode-name { justify-self: end; }
 .mode h3 .mode-aside { justify-self: start; }
-.mode h3.mode-metanome .mode-name { margin-inline-end: -0.16em; }
-.mode h3.mode-studio .mode-name { margin-inline-end: -0.06em; }
+.mode h3.mode-metanome .mode-word {
+  letter-spacing: 0.16em;
+  margin-inline-end: -0.16em;
+}
+.mode h3.mode-studio .mode-word {
+  letter-spacing: 0.06em;
+  margin-inline-end: -0.06em;
+}
 .mode h3 .mode-follow {
   display: contents;
 }
@@ -505,6 +528,7 @@ body.ab-b .hero-after { margin-top: 32px; }
     margin-inline-end: 0;
     text-align: center;
   }
+  .mode h3 .mode-word { margin-inline-end: 0; }
   .mode h3 .mode-follow {
     display: inline-flex;
     align-items: baseline;
@@ -535,18 +559,45 @@ body.ab-b .hero-after { margin-top: 32px; }
   fill: currentColor;
 }
 
-.keys {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  column-gap: 64px;
-  align-items: start;
-}
+.keys-hot { position: relative; z-index: 3; }
+.studio-controls { margin-top: 48px; }
+.studio-controls .keys-title { margin-top: 28px; }
+.studio-controls .keys-title:first-child { margin-top: 0; }
+
 .keys-title {
   margin: 0 0 18px;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.015em;
   text-align: left;
+}
+.keys-hot:not(.is-open) .hotkeys { cursor: pointer; }
+.keys-hot:not(.is-open) .hotkeys li:nth-child(n + 3) { display: none; }
+.keys-hot:not(.is-open) .hotkeys li:nth-child(2) {
+  align-items: start;
+  max-height: 52px;
+  overflow: hidden;
+  padding-bottom: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 22%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 22%, transparent 100%);
+}
+.keys-hot:not(.is-open) .hotkeys-more { margin-top: 0; }
+.hotkeys-more {
+  margin-top: 6px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: rgba(245, 245, 247, 0.72);
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.hotkeys-more:hover { color: #fff; }
+.hotkeys-more:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 4px;
 }
 .hotkeys,
 .icon-dict {
@@ -600,10 +651,18 @@ body.ab-b .hero-after { margin-top: 32px; }
 .icon-dict {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* 19 icons: down the left column, then down the right. */
-  grid-template-rows: repeat(10, auto);
   grid-auto-flow: column;
   gap: 12px 20px;
+}
+.icon-dict-play,
+.icon-dict-draw { grid-template-rows: repeat(4, auto); }
+.icon-dict.icon-dict-rest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 .icon-dict li {
   display: flex;
@@ -627,37 +686,6 @@ body.ab-b .hero-after { margin-top: 32px; }
   height: 32px;
   object-fit: contain;
 }
-@media (min-width: 861px) {
-  .keys-icons { position: relative; }
-  .keys-icons::before {
-    content: "";
-    position: absolute;
-    left: -32px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: var(--line);
-  }
-}
-@media (max-width: 860px) {
-  .keys {
-    grid-template-columns: 1fr;
-    row-gap: 40px;
-  }
-  .keys-icons {
-    position: relative;
-    padding-top: 40px;
-  }
-  .keys-icons::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 1px;
-    background: var(--line);
-  }
-}
 .demo .ipad { margin-top: 12px; }
 #more .wrap {
   display: grid;
@@ -669,8 +697,8 @@ body.ab-b .hero-after { margin-top: 32px; }
 #more .ipad {
   width: 100%;
   margin-inline: 0;
+  margin-bottom: 12px;
 }
-#keys { border-top: 0; }
 .mode p {
   margin: 8px 0 0;
   font-size: 16px;
@@ -748,23 +776,9 @@ body.ab-b .hero-after { margin-top: 32px; }
   .band { padding: 48px 0 56px; }
   #videos { padding-bottom: 20px; }
   .closing-get { padding-bottom: 56px; }
-  .modes {
-    grid-template-columns: 1fr;
-    row-gap: 40px;
-  }
-  .modes .mode:first-child .mode-body::before { display: none; }
-  .voice-scale { left: max(-8px, calc(26px - 16px)); }
-  .modes .mode + .mode { position: relative; }
-  .modes .mode + .mode::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -20px;
-    height: 1px;
-    background: var(--line);
-    pointer-events: none;
-  }
+  .modes { row-gap: 56px; }
+  .modes .mode + .mode::before { top: -28px; }
+  .voice-scale { left: 10px; }
   .modes .ipad { margin-top: 16px; }
   #more .wrap {
     grid-template-columns: 1fr;

@@ -47,6 +47,23 @@ if (turning) {
   requestAnimationFrame(trackTurn);
 }
 
+const hotkeys = document.querySelector(".keys-hot");
+if (hotkeys) {
+  const hotkeyButton = hotkeys.querySelector(".hotkeys-more");
+  const hotkeyList = hotkeys.querySelector(".hotkeys");
+  function setHotkeysOpen(open) {
+    hotkeys.classList.toggle("is-open", open);
+    hotkeyButton.setAttribute("aria-expanded", String(open));
+    hotkeyButton.textContent = open ? "Show fewer" : "Show all";
+  }
+  hotkeyButton.addEventListener("click", () => {
+    setHotkeysOpen(!hotkeys.classList.contains("is-open"));
+  });
+  hotkeyList.addEventListener("click", () => {
+    if (!hotkeys.classList.contains("is-open")) setHotkeysOpen(true);
+  });
+}
+
 const heroCopy = document.querySelector(".hero-copy");
 const heroAfter = document.querySelector(".hero-after");
 const heroWrap = document.querySelector(".hero > .wrap");
