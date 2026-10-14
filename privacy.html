@@ -6,7 +6,7 @@
   <title>Privacy Policy — Virtuosity</title>
   <meta name="description" content="Privacy policy for the Virtuosity iPad app." />
   <link rel="icon" href="assets/icon-192.png?v=3" />
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=65" />
 </head>
 <body class="doc">
   <header class="nav">
@@ -24,10 +24,11 @@
   <article class="legal wrap">
     <p class="eyebrow">Legal</p>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective September 16, 2026 · Last updated September 16, 2026</p>
+    <p class="meta">Effective October 13, 2026 · Last updated October 13, 2026</p>
     <p>
       Virtuosity is an iPad application published by Luke Morgan (“we,” “us”).
-      This policy describes how the app handles information.
+      This policy describes how the app handles information. A confirmed account
+      is required before the app can be used.
     </p>
 
     <h2>What Virtuosity does</h2>
@@ -35,28 +36,80 @@
       Virtuosity visualizes MIDI from a digital piano as a piano roll, records
       performances as Standard MIDI files on the device, and can play them back
       to the instrument. Optional export creates a package of MIDI, a short
-      metadata text file, and locally rendered audio.
+      metadata text file, and locally rendered audio. You can also keep
+      scratchpads on the iPad and import piano MusicXML.
     </p>
 
-    <h2>Information we collect</h2>
-    <p>Virtuosity does not require an account and does not include advertising or analytics SDKs.</p>
+    <h2>Account</h2>
+    <p>
+      Sign-in is provided by Supabase Auth. You create an account with an email
+      address and a password. The app will not open your library until that
+      email is confirmed. A reset link can be sent to the same address.
+      Supabase stores the password as a one-way hash. The app does not keep a
+      copy of the password. You can sign out from profile settings.
+    </p>
+    <p>
+      The account record holds the email address and the sign-in session. The
+      session is stored in the iPad Keychain.
+    </p>
+
+    <h2>What stays on the iPad</h2>
     <ul>
-      <li><strong>MIDI performance data.</strong> Note, timing, velocity, and pedal messages received from a connected instrument are used to draw the roll and, if you record, are stored as <code>.mid</code> files plus a small JSON sidecar (display name, date, comments, folder, tempo, meter, device name) in the app’s Documents folder on your iPad.</li>
-      <li><strong>Preferences.</strong> Appearance, metronome sound, accent setting, and time signature are stored in on-device UserDefaults.</li>
-      <li><strong>No cloud sync.</strong> Recordings are not uploaded to our servers. We do not operate a Virtuosity backend for this app.</li>
+      <li><strong>Recordings.</strong> Note, timing, velocity, and pedal messages from a connected instrument are used to draw the roll. If you record, they are stored as <code>.mid</code> files plus a small JSON sidecar (display name, date, comments, folder, tempo, meter, device name) in the app’s Documents folder. Recordings are not uploaded.</li>
+      <li><strong>Scratchpads and the activity log.</strong> Drawings, scratchpad pages, and the on-device practice log stay on the iPad. They are not uploaded.</li>
+      <li><strong>Preferences.</strong> Appearance, metronome, and other settings for the pianist on this iPad stay on the device.</li>
     </ul>
+
+    <h2>Sheet music</h2>
+    <p>
+      The app includes a catalog of public-domain piano scores: title, composer,
+      period, form, key, catalog number, license, and the address of the file.
+      The music itself is not stored in the app or in our database. Searching
+      that catalog does not download a score and does not send your account,
+      name, or recordings.
+    </p>
+    <p>
+      When you import one piece from the catalog, the app downloads that one
+      public file from the host that publishes it. After the import succeeds,
+      Virtuosity saves the score on the iPad and stores a copy with the
+      signed-in account. If the account copy cannot be saved, the score remains
+      on the iPad.
+    </p>
+    <p>
+      You can also import a <code>.musicxml</code>, <code>.xml</code>, or
+      <code>.mxl</code> file from the Files app. That file is saved on the iPad
+      and in your private account. It is not added to the public catalog, and
+      other people cannot browse it.
+    </p>
+
+    <h2>Microphone</h2>
+    <p>
+      The microphone is used only if you start tone training from the controller
+      menu. That training listens while the piano plays so the app can learn how
+      each note’s tone changes with velocity. The app does not turn the
+      microphone on for ordinary practice, recording, or sheet music.
+    </p>
 
     <h2>Sharing</h2>
     <p>
-      If you use the system share sheet to export MIDI or a practice package, the
-      files you choose leave the app only through Apple’s share interface, to the
-      destination you pick (Files, Mail, AirDrop, and so on). We do not receive a copy.
+      If you use the system share sheet to export MIDI, a practice package, or
+      another file, it leaves the app only through Apple’s share interface, to
+      the destination you pick. We do not receive a copy of that export.
+    </p>
+
+    <h2>Advertising and analytics</h2>
+    <p>
+      The iPad app does not include advertising or analytics SDKs. This marketing
+      site counts page views with GoatCounter. That counter is not part of the app.
     </p>
 
     <h2>Children</h2>
     <p>
-      The app is a practice tool and does not knowingly collect personal information
-      from children. MIDI recordings stay on the device unless you export them yourself.
+      Virtuosity is a practice tool. We do not knowingly collect personal
+      information from children. An account uses the email address supplied at
+      sign-up. Recordings and scratchpads stay on the iPad unless you export
+      them. A MusicXML score is stored with the account only after someone
+      imports it.
     </p>
 
     <h2>Contact</h2>
